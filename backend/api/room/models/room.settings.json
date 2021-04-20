@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rooms",
+  "info": {
+    "name": "room"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "numberbed": {
+      "type": "integer"
+    },
+    "bookings": {
+      "via": "room",
+      "collection": "booking"
+    }
+  }
+}

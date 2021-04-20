@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "name": "booking"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "username": {
+      "type": "string"
+    },
+    "datestart": {
+      "type": "datetime"
+    },
+    "dateend": {
+      "type": "datetime"
+    },
+    "room": {
+      "model": "room",
+      "via": "bookings"
+    }
+  }
+}
