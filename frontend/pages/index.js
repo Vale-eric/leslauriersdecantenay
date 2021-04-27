@@ -1,10 +1,10 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
-import rooms from '../rooms.json'
-import { fromImageToUrl } from '../utils/urls'
+import { fromImageToUrl, API_URL } from '../utils/urls'
 
-export default function Home() {
+export default function Home( { rooms }) {
   return (
     <div>
       <Head>
@@ -14,18 +14,35 @@ export default function Home() {
 
       {rooms.map(room => (
         <div key={room.titre} className={styles.room}>
-          <div className={styles.room__Rows}>
-            <div className={styles.room__ColImg}>
-              {room.images.map((roomOneImg) =>
-              <img src={fromImageToUrl(roomOneImg)}/>)}
-            </div>
-            <div className={styles.room__Col}>
-              {room.titre} {room.description}
-            </div>
-          </div>
+          <Link href={`/rooms/${room.slug}`}>
+            <a>
+              <div className={styles.room__Rows}>
+                <div className={styles.room__ColImg}>
+                  {room.images.map((roomOneImg, i) =>
+                  <img key={i} src={fromImageToUrl(roomOneImg)}/>)}
+                </div>
+                <div className={styles.room__Col}>
+                  {room.titre} {room.description}
+                </div>
+              </div>
+            </a>
+          </Link>
         </div>
       ))}
 
     </div>
   )
+}
+
+export async function getStaticProps() {
+  // Fetch the rooms
+    const room_res = await fetch(`${API_URL}/rooms/`)
+    const rooms = await room_res.json()
+
+  //Return the rooms as props
+    return {
+      props: {
+        rooms
+      }
+    }
 }
