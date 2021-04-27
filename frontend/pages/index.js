@@ -4,11 +4,11 @@ import styles from '../styles/Home.module.css'
 
 import { fromImageToUrl, API_URL } from '../utils/urls'
 
-export default function Home( { rooms }) {
+export default function Home( { rooms } ) {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Les Laurier de Cantenay</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
