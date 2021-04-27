@@ -9,16 +9,38 @@
     "timestamps": true,
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
-    "name": {
+    "titre": {
       "type": "string"
     },
-    "numberbed": {
+    "description": {
+      "type": "richtext"
+    },
+    "nombredelit": {
       "type": "integer"
     },
-    "bookings": {
-      "via": "room",
-      "collection": "booking"
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "meta_description": {
+      "type": "richtext"
+    },
+    "meta_title": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titre"
     }
   }
 }
