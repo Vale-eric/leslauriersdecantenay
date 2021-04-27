@@ -18,8 +18,7 @@ export default function Home( { rooms }) {
             <a>
               <div className={styles.room__Rows}>
                 <div className={styles.room__ColImg}>
-                  {room.images.map((roomOneImg, i) =>
-                  <img key={i} src={fromImageToUrl(roomOneImg)}/>)}
+                  <img src={fromImageToUrl(room.images[0])}/>
                 </div>
                 <div className={styles.room__Col}>
                   {room.titre} {room.description}
