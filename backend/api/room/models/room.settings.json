@@ -41,6 +41,10 @@
     "slug": {
       "type": "uid",
       "targetField": "titre"
+    },
+    "orders": {
+      "via": "room",
+      "collection": "order"
     }
   }
 }

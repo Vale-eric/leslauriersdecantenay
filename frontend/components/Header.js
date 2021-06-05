@@ -33,10 +33,11 @@ const Header = () => {
             </Link>
         </div>
         <div className={styles.auth}>
-            {user ?(<Link href='/account'>
-                <a>{user.email}</a>
-            </Link>) : (
-                <Link href='login'>
+            {user ?(
+                <Link href='/account'>
+                    <a><img src='/user_avatar.png' alt={user.email}/></a>
+                </Link>) : (
+                <Link href='/login'>
                     <a>connexion</a>
                 </Link>
             )}
